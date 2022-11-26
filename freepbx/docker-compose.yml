@@ -1,0 +1,105 @@
+version: '2'
+
+services:
+  freepbx-app:
+    container_name: freepbx-app
+    image: tiredofit/freepbx
+    ports:
+     ####如果您没有使用反向代理
+      #——80:80
+     ####如果您需要SSL支持并且不使用反向代理
+      #——443:443
+      - 5060:5060/udp
+      - 5160:5160/udp
+      - 18000-18100:18000-18100/udp
+     #### Flash操作面板
+      - 4445:4445
+    volumes:
+      - ./certs:/certs
+      - ./data:/data
+      - ./logs:/var/log
+      - ./data/www:/var/www/html
+     ###只在设置DB_EMBEDDED=TRUE时启用下面的选项
+      #- ./db:/var/lib/mysql
+     ###如果你对modules/css/做了修改，你可以将自定义文件放在图像之上-小心使用
+      #- ./assets/custom:/assets/custom
+
+    environment: 
+      - VIRTUAL_HOST=hostname.example.com
+      - VIRTUAL_NETWORK=nginx-proxy
+     ### 如果您想连接到SSL启用的容器
+     #- VIRTUAL_PORT=443
+     #- VIRTUAL_PROTO=https
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=hostname.example.com
+      - LETSENCRYPT_EMAIL=email@example.com
+
+      - ZABBIX_HOSTNAME=freepbx-app
+
+      - RTP_START=18000
+      - RTP_FINISH=18100
+    
+     ## 用于外部MySQL服务器
+      - DB_EMBEDDED=FALSE
+
+     ### 只有当DB_EMBEDDED=FALSE时才需要这些
+      - DB_HOST=freepbx-db
+      - DB_PORT=3306
+      - DB_NAME=asterisk
+      - DB_USER=asterisk
+      - DB_PASS=asteriskpass
+    
+     ###如果您使用TLS支持Apache监听容器中的443，将它们放到/certs中并设置这些:
+     #- TLS_CERT=cert.pem
+     #- TLS_KEY=key.pem
+     
+    restart: always
+    networks:
+      - proxy-tier
+
+    ###最后一行是Fail2ban的。如果不愿意，可以注释并在环境中添加ENABLE_FAIL2BAN=FALSE   
+    cap_add:
+      - NET_ADMIN
+    privileged: true
+
+  freepbx-db:
+    container_name: freepbx-db
+    image: tiredofit/mariadb
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=asterisk
+      - MYSQL_USER=asterisk
+      - MYSQL_PASSWORD=asteriskpass
+    networks:
+      - proxy-tier
+
+  freepbx-db-backup:
+    container_name: freepbx-db-backup
+    image: tiredofit/db-backup
+    links:
+     - freepbx-db
+    volumes:
+      - ./dbbackup:/backup
+    environment:
+      - ZABBIX_HOSTNAME=freepbx-db-backup
+      - DB_HOST=freepbx-db
+      - DB_TYPE=mariadb
+      - DB_NAME=asterisk
+      - DB_USER=asterisk
+      - DB_PASS=asteriskpass
+      - DB_DUMP_FREQ=1440
+      - DB_DUMP_BEGIN=0000
+      - DB_CLEANUP_TIME=8640
+      - COMPRESSION=BZ
+      - MD5=TRUE
+    networks:
+      - proxy-tier
+    restart: always
+
+networks:
+  proxy-tier:
+    external:
+      name: nginx-proxy
