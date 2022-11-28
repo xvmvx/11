@@ -520,18 +520,18 @@ function ChooseMirrors() {
     echo -e ''
     echo -e ' Docker CE'
     echo -e ''
-    echo -e ' ❖   阿里云           1)'
+    echo -e ' ❖    官方          1)'
     echo -e ' ❖   腾讯云           2)'
     echo -e ' ❖   华为云           3)'
     echo -e ' ❖   Azure            4)'
     echo -e ' ❖   网易             5)'
     echo -e ' ❖   清华大学         6)'
     echo -e ' ❖   中科大           7)'
-    echo -e ' ❖   官方             8)'
+    echo -e ' ❖   阿里云             8)'
     echo -e ''
     echo -e ' Docker Hub'
     echo -e ''
-    echo -e ' ❖   阿里云（北京）   1)'
+    echo -e ' ❖   官方   1)'
     echo -e ' ❖   阿里云（杭州）   2)'
     echo -e ' ❖   阿里云（成都）   3)'
     echo -e ' ❖   阿里云（广州）   4)'
@@ -542,7 +542,7 @@ function ChooseMirrors() {
     echo -e ' ❖   DaoCloud         9)'
     echo -e ' ❖   中科大          10)'
     echo -e ' ❖   谷歌云          11)'
-    echo -e ' ❖   官方            12)'
+    echo -e ' ❖   阿里云（北京）    12)'
     echo -e ''
     echo -e '#####################################################'
     echo -e ''
@@ -553,8 +553,8 @@ function ChooseMirrors() {
     CHOICE_A=$(echo -e "\n${BOLD}└─ 请选择并输入你想使用的 Docker CE 源 [ 1~8 ]：${PLAIN}")
     read -p "${CHOICE_A}" INPUT
     case $INPUT in
-    1)
-        SOURCE="mirrors.aliyun.com/docker-ce"
+    1) 
+        SOURCE="download.docker.com"
         ;;
     2)
         SOURCE="mirrors.cloud.tencent.com/docker-ce"
@@ -575,7 +575,7 @@ function ChooseMirrors() {
         SOURCE="mirrors.ustc.edu.cn/docker-ce"
         ;;
     8)
-        SOURCE="download.docker.com"
+        SOURCE="mirrors.aliyun.com/docker-ce"
         ;;
     *)
         SOURCE="mirrors.aliyun.com/docker-ce"
@@ -606,8 +606,8 @@ function ChooseMirrors() {
     read -p "${CHOICE_B}" INPUT
     case $INPUT in
     1)
-        REGISTRY_SOURCE="registry.cn-beijing.aliyuncs.com"
-        REGISTRY_SOURCE_OFFICIAL="False"
+        REGISTRY_SOURCE="registry.docker-cn.com"
+        REGISTRY_SOURCE_OFFICIAL="True"
         ;;
     2)
         REGISTRY_SOURCE="registry.cn-hangzhou.aliyuncs.com"
@@ -650,8 +650,9 @@ function ChooseMirrors() {
         REGISTRY_SOURCE_OFFICIAL="False"
         ;;
     12)
-        REGISTRY_SOURCE="registry.docker-cn.com"
-        REGISTRY_SOURCE_OFFICIAL="True"
+        REGISTRY_SOURCE="registry.cn-beijing.aliyuncs.com"
+        REGISTRY_SOURCE_OFFICIAL="False"
+
         ;;
     *)
         REGISTRY_SOURCE="registry.cn-hangzhou.aliyuncs.com"
