@@ -1,0 +1,25 @@
+version: "3.4"
+services:
+  postgres:
+    hostname: postgres
+    container_name: postgres
+    image: postgres:14
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      POSTGRES_USER: synapse_user
+      POSTGRES_PASSWORD: hello
+    volumes:
+      - ./postgres/create_db.sh:/docker-entrypoint-initdb.d/20-create_db.sh
+      - ./postgres/data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U synapse_user"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - matrix-net
+
+networks:
+  matrix-net:
+    attachable: true
