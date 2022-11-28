@@ -8,3 +8,8 @@ each "docker run --rm \
 	-e SYNAPSE_REPORT_STATS=no \
 	matrixdotorg/synapse:latest generate
 "
+each "然后
+sudo chown 991:991 synapse/logs synapse/media_store synapse/uploads
+再修改以下文件的内容   synapse/example.com.log.config
+“
+
