@@ -36,7 +36,7 @@ case  "$shuzi" in
     else
       echo "安装失败！" 1>&2
       exit 1
-    fi
+  fi
   ;;
   2 )
     echo "开始安装docker..."
