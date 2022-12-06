@@ -1,0 +1,40 @@
+
+# apt install libpq5 
+# ~/synapse/env/bin/pip install "matrix-synapse[goodway]"
+# Synapse的配置文件。
+# 这是一个YAML文件：快速介绍见[1]。特别要注意的是*缩进很重要*：列表或词典的所有元素都应该有相同的缩进。
+# [1]https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html。
+# 有关如何配置Synapse的更多信息，包括每个选项的完整记账，
+# 请访问docs/usage/configuration/config_documentation.md
+# 或https://matrix-org.github.io/synapse/latest/usage/configuration/config_documentation.html
+server_name: "haoo.host"
+pid_file: /data/homeserver.pid
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+        compress: false
+database:
+  name: psycopg2
+  args:
+    user: goodway
+    password: Guwei888
+    database: goodway
+    host: haoo.host
+    cp_min: 5
+    cp_max: 10
+  # name: sqlite3
+  # args:
+  #   database: /data/homeserver.db
+log_config: "/data/haoo.host.log.config"
+media_store_path: /data/media_store
+registration_shared_secret: "@8ck_4P3XXVB38O48RK6-27RyjGx1X1Y,#se6:=ZdaRSA,m~yi"
+report_stats: true
+macaroon_secret_key: "Fp;2x_AtZ#ZZgphin.Az^@vKYKE8XMBj~L2VQwu^tQXwnDy@c_"
+form_secret: "OweaZf,7;DADu*dJPYadjtH5&=WDZ3sBET~7l-Z*II084=eqAG"
+signing_key_path: "/data/haoo.host.signing.key"
+trusted_key_servers:
+  - server_name: "matrix.org"
