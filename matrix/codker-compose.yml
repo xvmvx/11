@@ -1,0 +1,63 @@
+#此 compose 文件与 Compose 本身兼容，可能需要一些调整以正确运行堆栈。
+
+version: '3'
+
+services:
+
+  synapse:
+    build:
+      context: ../..
+      dockerfile: docker/Dockerfile
+    image: docker.io/matrixdotorg/synapse:latest
+    # 由于 synapse 不会重试连接到数据库，因此重新启动失败
+    restart: unless-stopped
+    # 有关环境设置的完整文档，请参阅自述文件
+    #注意：您必须编辑 homeserver.yaml 才能使用 postgres，它默认为 sqlite
+    environment:
+      - SYNAPSE_CONFIG_PATH=/data/homeserver.yaml
+    volumes:
+      # 您可以将所有文件存储在本地文件夹中
+      - ./files:/data
+      # . .. 或者你可以在不同的存储点之间拆分它
+      # - ./files:/data
+      # - /path/to/ssd:/data/uploads
+      # - /path/to/large_hdd:/data/media
+    depends_on:
+      - db
+    # 为了公开 Synapse，删除以下内容之一，你可能实例直接暴露 TLS 端口：
+    ports:
+      - 8448:8448/tcp
+    # ... 或者使用反向代理，这里是 traefik 的例子：
+    labels:
+      # 以下行适用于 Traefik 版本 1.x：
+      #- traefik.enable=true
+      #- traefik.frontend.rule=Host:my.matrix.Host
+      #- traefik.port=8008
+      # 或者，对于 Traefik 2.0 版：
+      - traefik.enable=true
+      - traefik.http.routers.http-synapse.entryPoints=http
+      - traefik.http.routers.http-synapse.rule=Host(`my.matrix.host`)
+      - traefik.http.middlewares.https_redirect.redirectscheme.scheme=https
+      - traefik.http.middlewares.https_redirect.redirectscheme.permanent=true
+      - traefik.http.routers.http-synapse.middlewares=https_redirect
+      - traefik.http.routers.https-synapse.entryPoints=https
+      - traefik.http.routers.https-synapse.rule=Host(`my.matrix.host`)
+      - traefik.http.routers.https-synapse.service=synapse
+      - traefik.http.routers.https-synapse.tls=true
+      - traefik.http.services.synapse.loadbalancer.server.port=8008
+      - traefik.http.routers.https-synapse.tls.certResolver=le-ssl
+
+  db:
+    image: docker.io/postgres:12-alpine
+    # 当然要更改密码！
+    environment:
+      - POSTGRES_USER=goodway
+      - POSTGRES_PASSWORD=Guwei888
+      # 确保正确创建数据库
+      # https://matrix-org.github.io/synapse/latest/postgres.html#set-up-database
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
+    volumes:
+      #您可以将数据库表存储在本地文件夹中..
+      - ./schemas:/var/lib/postgresql/data
+      # .. 或者将它们存储在一些高性能存储上以获得更好的结果
+      # - /path/to/ssd/storage:/var/lib/postgresql/data
