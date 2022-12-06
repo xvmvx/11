@@ -36,13 +36,13 @@ services:
       # 或者，对于 Traefik 2.0 版：
       - traefik.enable=true
       - traefik.http.routers.http-synapse.entryPoints=http
-      - traefik.http.routers.http-synapse.rule=Host(`my.matrix.host`)
+      - traefik.http.routers.http-synapse.rule=Host(`haoo.host`)
       - traefik.http.middlewares.https_redirect.redirectscheme.scheme=https
       - traefik.http.middlewares.https_redirect.redirectscheme.permanent=true
       - traefik.http.routers.http-synapse.middlewares=https_redirect
       - traefik.http.routers.https-synapse.entryPoints=https
-      - traefik.http.routers.https-synapse.rule=Host(`my.matrix.host`)
-      - traefik.http.routers.https-synapse.service=synapse
+      - traefik.http.routers.https-synapse.rule=Host(`haoo.host`)
+      - traefik.http.routers.https-synapse.service=goodway
       - traefik.http.routers.https-synapse.tls=true
       - traefik.http.services.synapse.loadbalancer.server.port=8008
       - traefik.http.routers.https-synapse.tls.certResolver=le-ssl
