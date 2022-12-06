@@ -1,5 +1,5 @@
 #  版本
-version: "3.8"
+version: "3"
 # 服务
 services:
   # 服务1 
