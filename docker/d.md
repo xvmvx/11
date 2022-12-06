@@ -16,6 +16,7 @@
 - wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh # SWAG 选18
 - curl ifconfig.me  # 查看当前服务器IP：
 - ip addr show docker0  # 查看Docker容器内部IP：
+- lsof -i:8080  #查看8080端口
 ## npm忘记密码
 docker exec -it nginxproxymanager_db_1 sh  # nginxproxymanager_db_1这边改成你自己的容器名，可以通过docker ps 查看到
 mysql -u root -p
