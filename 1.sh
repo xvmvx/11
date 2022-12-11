@@ -3,6 +3,8 @@ echo "#######################################################################"
 xitong=$(cat /etc/issue)
 IP=$(curl ip.sb)
 CentOS="CentOS"
+VSP="请自行添加"
+server="请自行修改"
 echo -n "本机系统是：" ; echo ${xitong%(Final)*}
 result=$(echo $xitong | grep "${CentOS}")
 if [[ "$result" != "" ]]
@@ -13,38 +15,41 @@ else
 fi
 read IP
   case "$IP" in
-  45.43.57.207 )
+  45.43.57.207)
   	VSP="UCLOUD:chenlang1940@163.com:Ab123456."
 	server="PHP+bt+昊昊.中国+com--x.com"
   ;;
-  121.37.203.3 )
+  121.37.203.3)
   	VSP="华为☁️:hw17604827824:Ab123456"
 	server="VOS3000"
   ;;
-  124.71.218.178 )
+  124.71.218.178)
   	VSP="华为☁️:hw752541:Ab123456"
 	server="猫网页聊天"
   ;;
-  139.9.73.181 )
+  139.9.73.181)
   	VSP="华为☁️:hw13318275344:Ab123456"
 	server="不详"
   ;;
-  121.11.114.77 )
+  121.11.114.77)
   	VSP="天冀☁️:2580456@qq.com:Tzq.2580"
 	server="不详"
   ;;
-  1.117.233.33 )
+  1.117.233.33)
   	VSP="腾讯☁️:ijqomv@163.com:one@12345"
 	server="FreePBX"
   ;;
-  1.116.119.155 )
+  1.116.119.155)
   	VSP="腾讯☁️:dakqf76@163.com:qwer1234."
 	server="XSwitch"
   ;;
-  80.251.214.252 )
+  80.251.214.252)
   	VSP="搬瓦工:dakqf76@163.com:qwer1234."
 	server="NPM"
   ;;
+   *) 	VSP="请自行添加"
+	server="请自行修改" ;;
+esac
 echo -n "本机服务商信息:"; echo ${VSP}
 echo -n "本机运行服务信息：已启用"; echo ${server}
 echo "======================================================================"
