@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "#######################################################################"
 xitong=$(cat /etc/issue)
+IP=$(curl ip.sb)
 CentOS="CentOS"
 echo -n "本机系统是：" ; echo ${xitong%(Final)*}
 result=$(echo $xitong | grep "${CentOS}")
@@ -8,10 +9,44 @@ if [[ "$result" != "" ]]
 then
     echo "本机IP请使用ifconfig -a 检测"
 else
-    echo -n "本机IP是："; curl ip.sb
+    echo -n "本机IP是："; echo ${IP}
 fi
-echo "本机服务商信息:请vim修改/etc/profile文件的末尾添加"
-echo "本机运行服务信息：已启用   VOS3000"
+read IP
+  case "$IP" in
+  45.43.57.207 )
+  	VSP="UCLOUD:chenlang1940@163.com:Ab123456."
+	server="PHP+bt+昊昊.中国+com--x.com"
+  ;;
+  121.37.203.3 )
+  	VSP="华为☁️:hw17604827824:Ab123456"
+	server="VOS3000"
+  ;;
+  124.71.218.178 )
+  	VSP="华为☁️:hw752541:Ab123456"
+	server="猫网页聊天"
+  ;;
+  139.9.73.181 )
+  	VSP="华为☁️:hw13318275344:Ab123456"
+	server="不详"
+  ;;
+  121.11.114.77 )
+  	VSP="天冀☁️:2580456@qq.com:Tzq.2580"
+	server="不详"
+  ;;
+  1.117.233.33 )
+  	VSP="腾讯☁️:ijqomv@163.com:one@12345"
+	server="FreePBX"
+  ;;
+  1.116.119.155 )
+  	VSP="腾讯☁️:dakqf76@163.com:qwer1234."
+	server="XSwitch"
+  ;;
+  80.251.214.252 )
+  	VSP="搬瓦工:dakqf76@163.com:qwer1234."
+	server="NPM"
+  ;;
+echo -n "本机服务商信息:"; echo ${VSP}
+echo -n "本机运行服务信息：已启用"; echo ${server}
 echo "======================================================================"
 alias find="find . -name"
 echo "本机已启用的命令别名"
