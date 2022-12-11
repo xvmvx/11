@@ -13,7 +13,7 @@ then
 else
     echo -n "本机IP是："; echo ${IP}
 fi
-read IP
+
   case "$IP" in
   45.43.57.207)
   	VSP="UCLOUD:chenlang1940@163.com:Ab123456."
