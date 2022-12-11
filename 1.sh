@@ -98,5 +98,3 @@ read -p "退出请回车" menuNumberInput
     * )
       clear
       esac
-    ;;
-    esac
