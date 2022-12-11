@@ -45,7 +45,7 @@ fi
   ;;
   80.251.214.252)
   	VSP="搬瓦工:dakqf76@163.com:qwer1234."
-	server="NPM"
+	server="teie.mobi+matrix+NPM"
   ;;
    *) 	VSP="请自行添加"
 	server="请自行修改" ;;
