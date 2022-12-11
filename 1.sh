@@ -32,7 +32,7 @@ read -p "退出请回车" menuNumberInput
       	vim /etc/profile
     ;;
     2 )
-        vim /root/1.sh
+        vim /root/1/1.sh
     ;;
     3 )
         wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh
