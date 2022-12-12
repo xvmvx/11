@@ -47,6 +47,10 @@ fi
   	VSP="搬瓦工:dakqf76@163.com:qwer1234."
 	server="teie.mobi+matrix+NPM"
   ;;
+  137.175.36.42)
+  	VSP="raksmart:wing.999@icloud.com:Guwei888"
+	server="https://billing.raksmart.com/whmcs/clientarea.php"
+  ;;
    *) 	VSP="请自行添加"
 	server="请自行修改" ;;
 esac
@@ -63,15 +67,16 @@ echo "#######################################################################"
 echo " "
 echo " "
 echo " "
-echo "修改本窗口显示信息：       1.添加至开机运行  2.修改相关服务信息"
-echo "工具箱及测试相关:         3.综合工具箱 4.超级工具箱 5. 性能测试 综合测试 视频测试"
-echo "网络及优化相关            6. 网络测试 速度测试 7. DD WARP BBR 8. Docker和其他"
+echo "修改本窗口显示信息：1.添加至开机运行  2.修改相关服务信息"
+echo "工具箱及测试相关:3.综合工具箱 4.超级工具箱 5. 性能测试 视频测试"
+echo "网络及优化相关:6. 网络测试 速度测试 7. DD WARP BBR 8. Docker和其他"
 read -p "退出请回车" menuNumberInput
   case "$menuNumberInput" in
     1 )
       	vim /etc/profile
     ;;
     2 )
+    	clear
         vim /root/1/1.sh
     ;;
     3 )
