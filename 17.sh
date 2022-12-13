@@ -41,6 +41,3 @@ read -p "返回上层请按 0  ，退出请回车" menuNumberInput
     * )
       clear
       esac
-    ;;
-    esac
-}
