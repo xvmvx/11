@@ -5,13 +5,13 @@ IP=$(curl ip.sb)
 CentOS="CentOS"
 VSP="请自行添加"
 server="请自行修改"
-echo -n "本机系统是：" ; echo ${xitong%(Final)*}
+echo -n "-----本机系统是：" ; echo ${xitong%(Final)*}
 result=$(echo $xitong | grep "${CentOS}")
 if [[ "$result" != "" ]]
 then
-    echo "本机IP请使用ifconfig -a 检测"
+    echo "-----本机IP请使用ifconfig -a 检测"
 else
-    echo -n "本机IP是："; echo ${IP}
+    echo -n "-----本机IP是："; echo ${IP}
 fi
 
   case "$IP" in
@@ -54,50 +54,64 @@ fi
    *) 	VSP="请自行添加"
 	server="请自行修改" ;;
 esac
-echo -n "本机服务商信息:"; echo ${VSP}
-echo -n "本机运行服务信息：已启用"; echo ${server}
-echo "======================================================================"
+echo -n "-----本机服务商信息:"; echo ${VSP}
+echo -n "-----本机运行服务信息：已启用：>>>>>"; echo ${server}
+echo "===================================================="
 alias find="find . -name"
-echo "本机已启用的命令别名"
+echo "-----本机已启用的命令别名>>>>>"
 alias
-echo "alias显示全部别名，unalias lt删除别名"
-echo "======================================================================"
-echo "               My goodway "
-echo "#######################################################################"
+echo "-------提示：unalias lt删除别名"
+echo "====================================================="
+echo "----------          My goodway           ---------- "
+echo "#####################################################"
 echo " "
 echo " "
 echo " "
-echo "修改本窗口显示信息：1.添加至开机运行  2.修改相关服务信息"
-echo "工具箱及测试相关:3.综合工具箱 4.超级工具箱 5. 性能测试 视频测试"
-echo "网络及优化相关:6. 网络测试 速度测试 7. DD WARP BBR 8. Docker和其他"
-read -p "退出请回车" menuNumberInput
+echo "----- 修改显示信息： 1.改服务信息   2.添加到开机运行"
+echo "----- 工具及测试等： 3.运行工具箱   4.性能及视频测试"
+echo "----- 网络优化相关： 5.网络及速度   6.DD WARP BBR "
+echo "----- 常用插件软件： 7.Docker     8.其他"
+echo "======================================================"
+read -p "请选择要执行的操作，退出直接回车即可>>>>>>>>>>>>>>>>>>" menuNumberInput
   case "$menuNumberInput" in
     1 )
-      	vim /etc/profile
+      	vim /root/1/1.sh
     ;;
     2 )
-    	clear
-        vim /root/1/1.sh
+    	vim /etc/profile
     ;;
     3 )
-        wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh
+    	echo -n "运行行超级工具箱（好像坏了）按1，运行综合工具箱请按2,运行彩色BASH工具按3，运行中文BASH圣经请按4，返回上层按5，退出按6  >>>>>>>> "
+	read character
+	if [ "$character" = "1" ]; then
+             wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh
+	elif [ "$character" = "2" ]; then
+    	    source 11.sh
+	elif [ "$character" = "3" ]; then
+	    source 12.sh
+	elif [ "$character" = "4" ]; then
+	    git clone https://github.com/xvmvx/505_pure-bash-bible-zh_CN.git
+	elif [ "$character" = "5" ]; then
+    	    source 1.sh
+	elif [ "$character" = "6" ]; then
+    	    esac
+	else
+    	    echo 输入不符合要求
+        fi
     ;;
     4 )
-    	
+    	source 15.sh
     ;;
     5 )
-	source 15.sh
+	source 16.sh
     ;;
     6 )
-       source 16.sh
+        source 17.sh
     ;;
     7 )
-       source 17.sh
-    ;;
-    8 )
        source 18.sh
     ;;
-    9 )
+    8 )
        source 19.sh
     ;;
     * )
