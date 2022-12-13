@@ -6,7 +6,7 @@ echo "1.杜甫测试  2.单线程测试   3.最全测速脚本   4.superbench"
 echo "5.Bench.sh  6.流媒体测试   7.奈飞检测    8.回程测试"
 echo "9.直接显示回程线路"
 echo "###################################################"
-read -p "返回上层请按 0  ，退出请回车" menuNumberInput
+read -p "选择你要执行的测试，返回上层请按 0，退出直接回车>>>>>>>>>>" menuNumberInput
   case "$menuNumberInput" in
     1 )
       	wget -q https://github.com/Aniverse/A/raw/i/a && bash a
@@ -42,6 +42,3 @@ bash testrace.sh
     * )
       clear
       esac
-    ;;
-    esac
-}
