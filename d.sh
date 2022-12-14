@@ -520,29 +520,16 @@ function ChooseMirrors() {
     echo -e ''
     echo -e ' Docker CE'
     echo -e ''
-    echo -e ' ❖    官方          1)'
-    echo -e ' ❖   腾讯云           2)'
-    echo -e ' ❖   华为云           3)'
-    echo -e ' ❖   Azure            4)'
-    echo -e ' ❖   网易             5)'
-    echo -e ' ❖   清华大学         6)'
-    echo -e ' ❖   中科大           7)'
-    echo -e ' ❖   阿里云             8)'
+    echo -e ' ❖   海外：官方 1)。  Azure 2)。'
+    echo -e ' ❖   大陆：阿里☁️ 3)。 华为☁️ 4)。 腾讯☁️ 5)。'
+    echo -e ' ❖   教育：中科大 6)。 清华大学 7)。 网易 8)。'
     echo -e ''
     echo -e ' Docker Hub'
     echo -e ''
-    echo -e ' ❖   官方   1)'
-    echo -e ' ❖   阿里云（杭州）   2)'
-    echo -e ' ❖   阿里云（成都）   3)'
-    echo -e ' ❖   阿里云（广州）   4)'
-    echo -e ' ❖   阿里云（香港）   5)'
-    echo -e ' ❖   腾讯云           6)'
-    echo -e ' ❖   华为云           7)'
-    echo -e ' ❖   Azure            8)'
-    echo -e ' ❖   DaoCloud         9)'
-    echo -e ' ❖   中科大          10)'
-    echo -e ' ❖   谷歌云          11)'
-    echo -e ' ❖   阿里云（北京）    12)'
+    echo -e ' ❖   海外：官方 1) Azure 2) DaoCloud 3) 谷歌云 4)'
+    echo -e ' ❖   大陆：阿里☁️  杭州 5) 成都 6) 北京 7) 广州 8) 香港 9)'
+    echo -e ' ❖   大陆：华为☁️ 10)  腾讯☁️ 11)'
+    echo -e ' ❖   教育：中科大 12)'
     echo -e ''
     echo -e '#####################################################'
     echo -e ''
@@ -557,25 +544,25 @@ function ChooseMirrors() {
         SOURCE="download.docker.com"
         ;;
     2)
-        SOURCE="mirrors.cloud.tencent.com/docker-ce"
-        ;;
-    3)
-        SOURCE="repo.huaweicloud.com/docker-ce"
-        ;;
-    4)
         SOURCE="mirror.azure.cn/docker-ce"
         ;;
+    3)
+        SOURCE="mirrors.aliyun.com/docker-ce"
+        ;;
+    4)
+        SOURCE="repo.huaweicloud.com/docker-ce"
+        ;;
     5)
-        SOURCE="mirrors.163.com/docker-ce"
+        SOURCE="mirrors.cloud.tencent.com/docker-ce"
         ;;
     6)
-        SOURCE="mirrors.tuna.tsinghua.edu.cn/docker-ce"
-        ;;
-    7)
         SOURCE="mirrors.ustc.edu.cn/docker-ce"
         ;;
+    7)
+        SOURCE="mirrors.tuna.tsinghua.edu.cn/docker-ce"
+        ;;
     8)
-        SOURCE="mirrors.aliyun.com/docker-ce"
+        SOURCE="mirrors.163.com/docker-ce"
         ;;
     *)
         SOURCE="mirrors.aliyun.com/docker-ce"
@@ -610,49 +597,48 @@ function ChooseMirrors() {
         REGISTRY_SOURCE_OFFICIAL="True"
         ;;
     2)
-        REGISTRY_SOURCE="registry.cn-hangzhou.aliyuncs.com"
-        REGISTRY_SOURCE_OFFICIAL="False"
-        ;;
-    3)
-        REGISTRY_SOURCE="registry.cn-chengdu.aliyuncs.com"
-        REGISTRY_SOURCE_OFFICIAL="False"
-        ;;
-    4)
-        REGISTRY_SOURCE="registry.cn-guangzhou.aliyuncs.com"
-        REGISTRY_SOURCE_OFFICIAL="False"
-        ;;
-    5)
-        REGISTRY_SOURCE="registry.cn-hongkong.aliyuncs.com"
-        REGISTRY_SOURCE_OFFICIAL="False"
-        ;;
-    6)
-        REGISTRY_SOURCE="mirror.ccs.tencentyun.com"
-        REGISTRY_SOURCE_OFFICIAL="False"
-        ;;
-    7)
-        REGISTRY_SOURCE="0bab0ef02500f24b0f31c00db79ffa00.mirror.swr.myhuaweicloud.com"
-        REGISTRY_SOURCE_OFFICIAL="False"
-        ;;
-    8)
         REGISTRY_SOURCE="dockerhub.azk8s.com"
         REGISTRY_SOURCE_OFFICIAL="False"
         ;;
-    9)
+    3)
         REGISTRY_SOURCE="f1361db2.m.daocloud.io"
         REGISTRY_SOURCE_OFFICIAL="False"
         ;;
-    10)
-        REGISTRY_SOURCE="docker.mirrors.ustc.edu.cn"
-        REGISTRY_SOURCE_OFFICIAL="False"
-        ;;
-    11)
+    4)
         REGISTRY_SOURCE="gcr.io"
         REGISTRY_SOURCE_OFFICIAL="False"
         ;;
-    12)
+    5)
+        REGISTRY_SOURCE="registry.cn-hangzhou.aliyuncs.com"
+        REGISTRY_SOURCE_OFFICIAL="False"
+        ;;
+    6)
+        REGISTRY_SOURCE="registry.cn-chengdu.aliyuncs.com"
+        REGISTRY_SOURCE_OFFICIAL="False"
+        ;;
+    7)
         REGISTRY_SOURCE="registry.cn-beijing.aliyuncs.com"
         REGISTRY_SOURCE_OFFICIAL="False"
-
+        ;;
+    8)
+        REGISTRY_SOURCE="registry.cn-guangzhou.aliyuncs.com"
+        REGISTRY_SOURCE_OFFICIAL="False"
+        ;;
+    9)
+        REGISTRY_SOURCE="registry.cn-hongkong.aliyuncs.com"
+        REGISTRY_SOURCE_OFFICIAL="False"
+        ;;
+    10)
+        REGISTRY_SOURCE="0bab0ef02500f24b0f31c00db79ffa00.mirror.swr.myhuaweicloud.com"
+        REGISTRY_SOURCE_OFFICIAL="False"
+        ;;
+    11)
+        REGISTRY_SOURCE="mirror.ccs.tencentyun.com"
+        REGISTRY_SOURCE_OFFICIAL="False"
+        ;;
+    12)
+        REGISTRY_SOURCE="docker.mirrors.ustc.edu.cn"
+        REGISTRY_SOURCE_OFFICIAL="False"
         ;;
     *)
         REGISTRY_SOURCE="registry.cn-hangzhou.aliyuncs.com"
