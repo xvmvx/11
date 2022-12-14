@@ -39,7 +39,7 @@ read -p "返回上层请按 0  ，退出请回车" menuNumberInput
 		elif [ "$character3" = "2" ]; then
      			wget --no-check-certificate -O NewReinstall.sh https://cdn.jsdelivr.net/gh/fcurrk/reinstall@master/NewReinstall.sh && chmod a+x NewReinstall.sh && bash NewReinstall.sh
 		elif [ "$character3" = "3" ]; then
-		    	source 1.sh
+		    	source ./17.sh
 		elif [ "$character3" = "4" ]; then
     	    		esac
 		else
@@ -53,14 +53,14 @@ read -p "返回上层请按 0  ，退出请回车" menuNumberInput
 		elif [ "$character4" = "2" ]; then
      			wget --no-check-certificate -O NewReinstall.sh https://git.io/newbetags && chmod a+x NewReinstall.sh && bash NewReinstall.sh
 		elif [ "$character4" = "3" ]; then
-		    	source 1.sh
+		    	source ./17.sh
 		elif [ "$character4" = "4" ]; then
     	    		esac
 		else
     	    		echo 输入不符合要求
         	fi
 	elif [ "$character2" = "4" ]; then
-	    source 1.sh
+	    source ./1.sh
 	elif [ "$character2" = "5" ]; then
     	    esac
 	else
@@ -72,31 +72,37 @@ read -p "返回上层请按 0  ，退出请回车" menuNumberInput
     ;;
     3 )
     	echo -n "Centos7 BBR 按1，一键开启BBR 按2，返回上层按3，退出按4  >>>>>>>>> "
-	read character
-	if [ "$character" = "1" ]; then
+	read character5
+	if [ "$character5" = "1" ]; then
      		wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
-	elif [ "$character" = "2" ]; then
+	elif [ "$character5" = "2" ]; then
      		uname -srm
-	elif [ "$character4" = "3" ]; then
-		  source 1.sh
-		elif [ "$character4" = "4" ]; then
-    	    		esac
-		else
-    	    		echo 输入不符合要求
-        	fi
+	elif [ "$character5" = "3" ]; then
+		source ./1.sh
+	elif [ "$character5" = "4" ]; then
+    	    	esac
+	else
+    	    	echo 输入不符合要求
+        fi
     	
     ;;
-    7 )
-        
+    4 )
+        echo -n "呆梨的相关  XIU按1，make按2，返回上层按3，退出按4  >>>>>>>>> "
+	read character6
+	if [ "$character6" = "1" ]; then
+     		bash <(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.sh) 0.2.0
+	elif [ "$character6" = "2" ]; then
+     		wget -P /root -N --no-check-certificate "https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh" && chmod 700 /root/install.sh && /root/install.sh
+    	elif [ "$character6" = "3" ]; then
+		source ./1.sh
+	elif [ "$character6" = "4" ]; then
+    	    	esac
+	else
+    	    	echo 输入不符合要求
+        fi
     ;;
-    8 )
-        bash <(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.sh) 0.2.0
-    ;;
-    9 )
-        wget -P /root -N --no-check-certificate "https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh" && chmod 700 /root/install.sh && /root/install.sh
-    ;;
-    0 )
-    	source ./1.sh
+    5 )
+        source ./1.sh
     ;;
     * )
       clear
