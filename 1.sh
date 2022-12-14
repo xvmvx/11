@@ -33,7 +33,7 @@ fi
   ;;
   121.11.114.77)
   	VSP="天冀☁️:2580456@qq.com:Tzq.2580"
-	server="不详"
+	server="XSwitch"
   ;;
   1.117.233.33)
   	VSP="腾讯☁️:ijqomv@163.com:one@12345"
