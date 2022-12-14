@@ -1,19 +1,32 @@
 #!/bin/bash
-echo "#######################################################################"
-echo "              Docker  Docker-compose    other         "
-echo "======================================================================"
-echo "1.海外服务器Docker 2.大陆服务器Docker 3.卸载docker "
-echo "4.CentOS 同步时间 5.CentOS 关闭防火墙 6.NPM 7.宝塔面板"
-echo "#######################################################################"
-echo "  "
-read -p "返回上层请按 0  ，退出请回车" menuNumberInput
+echo "#######################################################"
+echo "             Docker  Docker-compose    other         "
+echo "======================================================="
+echo "-----  1.Docker安装 Docker docker-compose "
+echo "-----  2.WARP 3.BBR 4.呆梨 -XUI -make"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "######################################################"
+read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请回车>>>>>>>>>" menuNumberInput
   case "$menuNumberInput" in
     1 )
-        apt-get update && apt-get install -y wget vim
-        wget -qO- get.docker.com | bash
-        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
-        docker-compose --version
+    	echo -n "官方脚本请按1，一键脚本请按2，返回上层按3，退出按4  >>>>>>>> "
+	read character
+	if [ "$character" = "1" ]; then
+		sudo apt-get remove docker docker-engine docker.io containerd runc || sudo yum install apt-get
+		sudo apt-get update && sudo apt-get install ca-certificates curl gnupg lsb-release
+		sudo mkdir -p /etc/apt/keyrings
+		sudo curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+		sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+		$(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+		sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+	elif [ "$character" = "2" ]; then
+            	source ./d.sh
+	elif [ "$character" = "3" ]; then
+            	source ./1.sh
+	else
+      		clear
+      		esac
+	fi
     ;;
     2 )
         curl -sSL https://get.daocloud.io/docker | sh
@@ -47,6 +60,3 @@ read -p "返回上层请按 0  ，退出请回车" menuNumberInput
     * )
       clear
       esac
-    ;;
-    esac
-}
