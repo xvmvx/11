@@ -9,7 +9,7 @@ echo "######################################################"
 read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请回车>>>>>>>>>" menuNumberInput
   case "$menuNumberInput" in
     1 )
-    	echo -n "官方脚本请按1，一键脚本请按2，返回上层按3，退出按4  >>>>>>>> "
+    	echo -n "官方docker请按1，官方docker-compose请按2，一键脚本请按3，返回上层按4，退出按5  >>>>>>>> "
 	read character
 	if [ "$character" = "1" ]; then
 		sudo apt-get remove docker docker-engine docker.io containerd runc || sudo yum install apt-get
@@ -20,8 +20,12 @@ read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请�
 		$(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 		sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 	elif [ "$character" = "2" ]; then
-            	source ./d.sh
+		curl -L https://get.daocloud.io/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+		chmod +x /usr/local/bin/docker-compose
+		ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 	elif [ "$character" = "3" ]; then
+            	source ./d.sh
+	elif [ "$character" = "4" ]; then
             	source ./1.sh
 	else
       		clear
