@@ -66,7 +66,7 @@ esac
 echo -n "-----本机服务商信息:"; echo ${VSP}
 echo -n "-----本机运行服务信息：已启用：>>>>>"; echo ${server}
 echo "===================================================="
-alias find="find . -name"
+alias fin="find . -name"
 echo "-----本机已启用的命令别名>>>>>"
 alias
 echo "-------提示：unalias lt删除别名"
