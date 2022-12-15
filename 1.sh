@@ -32,7 +32,7 @@ fi
 	server="不详"
   ;;
   121.11.114.77)
-  	VSP="天冀☁️:2580456@qq.com:Tzq.2580"
+  	VSP="天冀☁️:46586262@qq.com:Tzq.2580"
 	server="XSwitch"
   ;;
   1.117.233.33)
@@ -51,8 +51,12 @@ fi
   	VSP="raksmart:wing.999@icloud.com:Guwei888"
 	server="https://billing.raksmart.com/whmcs/clientarea.php"
   ;;
+  139.159.182.63)
+  	VSP="华为☁️:hw16623829517hw55582339:Ab23456"
+	server="FreePBX☎️"
+  ;;
    *) 	VSP="请自行添加"
-	server="请自行修改" ;;
+	server="请自行修改" 
 esac
 echo -n "-----本机服务商信息:"; echo ${VSP}
 echo -n "-----本机运行服务信息：已启用：>>>>>"; echo ${server}
