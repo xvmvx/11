@@ -102,7 +102,7 @@ read -p "请选择要执行的操作，退出直接回车即可>>>>>>>>>>>>>>>>>
 	elif [ "$character" = "5" ]; then
     	    source 1.sh
 	elif [ "$character" = "6" ]; then
-    	    esac
+    	    exit n
 	else
     	    echo 输入不符合要求
         fi
