@@ -1,13 +1,13 @@
 #!/bin/bash
 sudo apt-get update
 sudo apt-get install -y make zip wget || sudo yum install -y make zip wget
-sudo wget https://xswitch.cn/download/xswitch-install.tar.gz --user xswitch --password password
-tar zxvf xswitch-install.tar.gz && cd xswitch-install
+sudo wget https://xswitch.cn/download/xswitch-install.tar.gz --user xswitch --password password && tar zxvf xswitch-install.tar.gz
+mv xswitch-install /var/xswitch && cd /var/xswitch
 make setup && mv .env .env.beifen
 cp ../.env .env
 IP=$(curl ip.sb)
 IP2=$(hostname -I)
-file=$(find / -name .env)
+file=/var/xswitch/.env
 echo -n "-----本机公网IP是："; echo ${IP}
 echo -n "正确请按  y   不正确请按  n  >>>>>>>> "
 read character
