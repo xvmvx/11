@@ -2,6 +2,8 @@
 if [ ! -d "/etc/profile.d/pro.sh" ]; then
   mv ~/1/pro.sh  /etc/profile.d/pro.sh
 fi
+chmod +x /root/1/*
+cd /root/1
 echo "#######################################################################"
 xitong=$(cat /etc/issue)
 IP=$(curl ip.sb)
