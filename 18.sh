@@ -1,15 +1,26 @@
 #!/bin/bash
+clear
 echo "#######################################################"
 echo "             Docker  Docker-compose    other         "
 echo "======================================================="
-echo "-----  1.Docker安装 Docker docker-compose "
-echo "-----  2.WARP 3.BBR 4.呆梨 -XUI -make"
+echo "-----  1.Docker安装 包括Docker docker-compose等 "
+echo "-----  2.WARP 不对"
+echo "-----  3.BBR 不对"
+echo "-----  4.呆梨 不对"
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo "######################################################"
 read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请回车>>>>>>>>>" menuNumberInput
   case "$menuNumberInput" in
     1 )
-    	echo -n "官方docker请按1，官方docker-compose请按2，一键脚本请按3，返回上层按4，退出按5  >>>>>>>> "
+    	clear
+	echo "#######################################################"
+    	echo -n " "
+	echo -n " "
+	echo -n "按1  官方docker "
+	echo -n "按2  官方docker-compose "
+	echo -n "按3  一键脚本 "
+	echo -n "按4  返回上层 "
+	echo -n "退出按5  >>>>>>>> >>>>>>>> >>>>>>>> "
 	read character
 	if [ "$character" = "1" ]; then
 		sudo apt-get remove docker docker-engine docker.io containerd runc || sudo yum install apt-get
@@ -24,9 +35,9 @@ read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请�
 		chmod +x /usr/local/bin/docker-compose
 		ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 	elif [ "$character" = "3" ]; then
-            	source ./d.sh
+            	source ./~/1/d.sh
 	elif [ "$character" = "4" ]; then
-            	source ./1.sh
+            	source ./~/1/1.sh
 	else
       		clear
       		exit -n
