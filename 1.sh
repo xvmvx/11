@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ ! -d "/etc/profile.d/pro.sh" ]; then
+  mv ~/1/pro.sh  /etc/profile.d/pro.sh
+  echo 'chmod +x /etc/profile.d/pro.sh && ./etc/profile.d/pro.sh'>>/etc/profile
+fi
 echo "#######################################################################"
 xitong=$(cat /etc/issue)
 IP=$(curl ip.sb)
