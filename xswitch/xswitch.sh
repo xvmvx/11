@@ -7,6 +7,7 @@ make setup && mv .env .env.beifen
 cp ../.env .env
 IP=$(curl ip.sb)
 IP2=$(hostname -I)
+file=$(find / -name ".env")
 echo -n "-----本机公网IP是："; echo ${IP}
 echo -n "正确请按  y   不正确请按  n  >>>>>>>> "
 read character
