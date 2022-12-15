@@ -100,13 +100,13 @@ read -p "请选择要执行的操作，退出直接回车即可>>>>>>>>>>>>>>>>>
 	if [ "$character" = "1" ]; then
              wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh
 	elif [ "$character" = "2" ]; then
-    	    source 11.sh
+    	    source ~/1/11.sh
 	elif [ "$character" = "3" ]; then
-	    source 12.sh
+	    source ~/1/12.sh
 	elif [ "$character" = "4" ]; then
 	    git clone https://github.com/xvmvx/505_pure-bash-bible-zh_CN.git
 	elif [ "$character" = "5" ]; then
-    	    source 1.sh
+    	    source ~/1/1.sh
 	elif [ "$character" = "6" ]; then
     	    exit n
 	else
@@ -114,19 +114,19 @@ read -p "请选择要执行的操作，退出直接回车即可>>>>>>>>>>>>>>>>>
         fi
     ;;
     4 )
-    	source 15.sh
+    	source ~/1/15.sh
     ;;
     5 )
-	source 16.sh
+	source ~/1/16.sh
     ;;
     6 )
-        source 17.sh
+        source ~/1/17.sh
     ;;
     7 )
-       source 18.sh
+       source ~/1/18.sh
     ;;
     8 )
-       source 19.sh
+       source ~/1/19.sh
     ;;
     * )
       clear
