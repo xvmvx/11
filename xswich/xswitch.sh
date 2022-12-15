@@ -5,6 +5,10 @@ sudo wget https://xswitch.cn/download/xswitch-install.tar.gz --user xswitch --pa
 tar zxvf xswitch-install.tar.gz && cd xswitch-install
 make setup && mv .env .env.beifen
 cp ../.env .env
+ip=$(curl ip.sb)
+echo "公网IP，"; 
+
+read y_name
 make up
 
 
