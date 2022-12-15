@@ -51,9 +51,3 @@ echo "进入 XSwitch 容器 执行    make bash  "
 echo "进入 XSwitch 控制台   执行make cli  "
 echo "进入数据库   执行make bash-pg   "
 echo "进入nginx容器   执行make bash-nginx   "
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-服务条款
-隐私
-安全
