@@ -88,7 +88,14 @@ read -p "请选择要执行的操作，退出直接回车即可>>>>>>>>>>>>>>>>>
     	vim /etc/profile
     ;;
     3 )
-    	echo -n "运行行超级工具箱（好像坏了）按1，运行综合工具箱请按2,运行彩色BASH工具按3，运行中文BASH圣经请按4，返回上层按5，退出按6  >>>>>>>> "
+    	clear
+    	echo -n ">>>>>>>>>>>>>>>>>>"
+	echo -n "按1 运行行超级工具箱（好像坏了），"
+	echo -n "按2 运行综合工具箱请, "
+	echo -n "按3 运行彩色BASH工具，"
+	echo -n "按4 运行中文BASH圣经  "
+	echo -n "按5 返回上层 " 
+	echo -n "退出按6  >>>>>>>> "
 	read character
 	if [ "$character" = "1" ]; then
              wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh
