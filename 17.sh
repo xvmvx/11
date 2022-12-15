@@ -42,7 +42,7 @@ read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请�
 		elif [ "$character3" = "3" ]; then
 		    	source ./17.sh
 		elif [ "$character3" = "4" ]; then
-    	    		esac
+    	    		exit -n
 		else
     	    		echo 输入不符合要求
         	fi
@@ -56,14 +56,14 @@ read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请�
 		elif [ "$character4" = "3" ]; then
 		    	source ./17.sh
 		elif [ "$character4" = "4" ]; then
-    	    		esac
+    	    		exit -n
 		else
     	    		echo 输入不符合要求
         	fi
 	elif [ "$character2" = "4" ]; then
 	    source ./1.sh
 	elif [ "$character2" = "5" ]; then
-    	    esac
+    	    exit -n
 	else
     	    echo 输入不符合要求
         fi
@@ -81,7 +81,7 @@ read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请�
 	elif [ "$character5" = "3" ]; then
 		source ./1.sh
 	elif [ "$character5" = "4" ]; then
-    	    	esac
+    	    	exit -n
 	else
     	    	echo 输入不符合要求
         fi
@@ -97,7 +97,7 @@ read -p "按照提示输入正确的数字  返回上层请按 0  ，退出请�
     	elif [ "$character6" = "3" ]; then
 		source ./1.sh
 	elif [ "$character6" = "4" ]; then
-    	    	esac
+    	    	exit -n
 	else
     	    	echo 输入不符合要求
         fi
